@@ -1,0 +1,30 @@
+name: Deploy Walrus Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Se o seu site precisa de build (ex: React, Vue), coloque aqui seus comandos
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '18'
+
+      # - name: Build site
+      #   run: npm install && npm run build
+
+      - name: Deploy Walrus Site
+        uses: MystenLabs/walrus-sites/.github/actions/deploy@main
+        with:
+          SUI_ADDRESS: ${{ vars.SUI_ADDRESS }}
+          SUI_KEYSTORE: ${{ secrets.SUI_KEYSTORE }}
+          DIST: ./public
+          SUI_NETWORK: mainnet
