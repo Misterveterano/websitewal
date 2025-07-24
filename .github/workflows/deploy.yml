@@ -20,7 +20,7 @@ jobs:
       - name: Deploy Walrus Site
         uses: MystenLabs/walrus-sites/.github/actions/deploy@main
         with:
-          SUI_ADDRESS: ${{ vars.SUI_ADDRESS }}
+          SUI_ADDRESS: "0xb1602504e88d4f5c1847faa98351615df4a0f8d97fda93a81385717894dbcf77"
           SUI_KEYSTORE: ${{ secrets.SUI_KEYSTORE }}
           DIST: public
           SUI_NETWORK: mainnet
